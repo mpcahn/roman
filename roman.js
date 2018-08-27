@@ -21,23 +21,24 @@ var romanNum = {
 function romanToDecimal(str) {
   var count = 0
   var i = 0
-  console.log(str.length)
-  
-  while (i < str.length){
+
+  while (i < str.length) {
+    let sym = str.charAt(i)
+    let deuc = sym + str.charAt(i + 1)
+
     for (key in romanNum['weird']) {
-      sym = str.charAt(i) + str.charAt(i++) 
-      if (key === sym){
-        console.log(sym)
+      if (key === deuc) {
         count += romanNum['weird'][key]
         i += 2
-      } 
+        break;
+      }
     }
-    for (key in romanNum['normal']){
-      sym = str.charAt(i)
-      if (key = sym){
-        console.log(sym)
+
+    for (key in romanNum['normal']) {
+      if (key === sym) {
         count += romanNum['normal'][key]
         i++
+        break;
       }
     }
   }
@@ -48,5 +49,5 @@ function romanToDecimal(str) {
 console.log(romanToDecimal('VII'))
 console.log(romanToDecimal('XXXXII'))
 console.log(romanToDecimal('CIV'))
-console.log(romanToDecimal('VII'))
-console.log(romanToDecimal('VII'))
+console.log(romanToDecimal('CIX'))
+console.log(romanToDecimal('MXC'))
