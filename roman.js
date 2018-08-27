@@ -13,13 +13,13 @@ function romanToDecimal(str) {
   var i = 0
 
   for (var i = 0; i < str.length; i++) {
-    var sym = romanNum[str.charAt(i)]
-    var fut = romanNum[str.charAt(i+1)]
+    var val = romanNum[str.charAt(i)]
+    var nVal = romanNum[str.charAt(i+1)]
 
-    if (fut > sym){
-      count -= sym 
+    if (nVal > val){
+      count -= val 
     } else {
-      count += sym
+      count += val
     }
   }
 
